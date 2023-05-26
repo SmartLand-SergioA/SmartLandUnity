@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
    private void GiveAnswer(OptionPlayer optionPlayer)
    {
         StartCoroutine(GiveAnswerRoutine(optionPlayer));
-    
    }
 
 
@@ -79,11 +78,8 @@ public class GameManager : MonoBehaviour
  
    public void GameOver()
    {
-     SceneManager.LoadScene("Demo"); // Reemplazar "NombreDeLaEscena" con el nombre de la escena deseada
+     SceneManager.LoadScene("GameOver");
      //Se puede agregar la logica para quitar vida si se escoge una pregunta incorrecta 
-         // SceneManager.LoadScene(0);
-          //SceneManager.LoadScene("Demo_Scene_D");
-               
    }
 
 

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Vast Outer Space/EXAMPLE/Demo_Scene_B.unity
     guid: 4547825d60af78e4dba31ef1b4f50a71
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f570fed96b0396e429342c3a32cdce5f
   m_configObjects: {}
