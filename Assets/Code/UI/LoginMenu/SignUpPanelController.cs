@@ -46,7 +46,6 @@ public class SignUpPanelController : MonoBehaviour
     {
         //TODO: Register User in DB
         AuthenticationManager.Instance.Register(user, password);
-        SceneManager.LoadScene("MainMenu");
     }
 
     /// <summary>

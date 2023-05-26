@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Se encarga de la autenticación y registro de usuarios a la base de datos por medio de API
@@ -74,8 +75,11 @@ public class AuthenticationManager : MonoBehaviour
                 // Obtener el token JWT de la respuesta
                 string jwtToken = response.token;
 
-                // Almacenar el token JWT en PlayerPrefs o en tu clase de almacenamiento personalizado
+                // Almacenar el token JWT en PlayerPrefs (Localmente) o en tu clase de almacenamiento personalizado
                 PlayerPrefs.SetString("JWTToken", jwtToken);
+                
+                //Ingresa al juego
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
@@ -127,14 +131,24 @@ public class AuthenticationManager : MonoBehaviour
                 // Obtener el token JWT de la respuesta
                 string jwtToken = response.token;
 
-                // Almacenar el token JWT en PlayerPrefs o en tu clase de almacenamiento personalizado
+                // Almacenar el token JWT en PlayerPrefs (Localmente) o en tu clase de almacenamiento personalizado
                 PlayerPrefs.SetString("JWTToken", jwtToken);
+                
+                //Ingresa al juego
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
                 Debug.Log($"Registro fallido: {response.message}");
             }
         }
+    }
+
+    public void Logout()
+    {
+        // Se borra el token de JWT de los player prefs para cerrar la sesión.
+        PlayerPrefs.DeleteKey("JWTToken");
+        SceneManager.LoadScene("Auth");
     }
 }
 

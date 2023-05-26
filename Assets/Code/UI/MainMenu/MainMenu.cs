@@ -14,6 +14,7 @@ namespace Code.TransicionDePaneles.Metodo3
         public Button botonPartidaNormal;
         public Button botonPartidaCompetitiva;
         public Button botonPartidaCustom;
+        public Button botonCerrarSesion;
     
         void Start()
         {
@@ -22,6 +23,13 @@ namespace Code.TransicionDePaneles.Metodo3
             botonPartidaNormal.onClick.AddListener(IrAlPanelDePartidaNormal);
             botonPartidaCompetitiva.onClick.AddListener(IrAlPanelDePartidaCompetitiva);
             botonPartidaCustom.onClick.AddListener(IrAlPanelDePartidaCustom);
+            botonCerrarSesion.onClick.AddListener(Logout);
+        }
+
+        private void Logout()
+        {
+            //Se le dice al auth manager que cierre la sesión del jugador
+            AuthenticationManager.Instance.Logout();
         }
 
         /// <summary>

@@ -9,6 +9,7 @@ public class LoginPanelController : MonoBehaviour
 
     //Referencia a los botones
     public Button loginButton;
+    public Button anonymousLoginButton;
     public Button goToSignUpButton;
     
 
@@ -25,10 +26,16 @@ public class LoginPanelController : MonoBehaviour
         //Se le asigna la funcionalidad a los botones por medio de la propiedad onClick de los botones
         goToSignUpButton.onClick.AddListener(GoToSignUpPanel);
         loginButton.onClick.AddListener(AuthUser);
+        anonymousLoginButton.onClick.AddListener(AnonymousLogin);
         
         //Se le asigna la funcionalidad a los input field por medio de la propiedad onValueChanged de los botones
         userInputField.onValueChanged.AddListener(SetUser);
         passwordInputField.onValueChanged.AddListener(SetPassword);
+    }
+
+    private void AnonymousLogin()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     /// <summary>
@@ -47,7 +54,6 @@ public class LoginPanelController : MonoBehaviour
     {
         //TODO: Validate User in DB
         AuthenticationManager.Instance.Login(user, password);
-        SceneManager.LoadScene("MainMenu");
     }
 
     /// <summary>
